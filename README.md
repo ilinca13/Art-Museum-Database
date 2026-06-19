@@ -60,9 +60,9 @@ The first phase of the project was entirely about modeling and implementing the 
 ### Modeling
 
 - Identifying entities, attributes, and relationships from the real-world museum scenario, including which relationships needed full participation (minimum cardinality 1) versus optional participation (minimum cardinality 0) on each side.
-- Modeling the `Employee` hierarchy with `Curator` and `Guide` as specializations sharing the same primary key (`Angajat_ID`) as their parent, rather than duplicating employee attributes — an ISA relationship with disjoint, partial specialization.
+- Modeling the `Employee` hierarchy with `Curator` and `Guide` as specializations sharing the same primary key (`Angajat_ID`) as their parent, rather than duplicating employee attributes: an ISA relationship with disjoint, partial specialization.
 - Building the entity-relationship diagram, then translating it into a conceptual (logical) diagram using Oracle SQL Developer's Data Modeler, which involved resolving every many-to-many relationship into an explicit associative table.
-- Designing 7 associative tables with composite primary keys to represent many-to-many relationships that themselves carry attributes — for example, `Tour_Scheduling` (which tour, which guide, on which date, with how many participants) needed all three identifying columns in its primary key, since the same guide could run the same tour on different dates.
+- Designing 7 associative tables with composite primary keys to represent many-to-many relationships that themselves carry attributes: for example, `Tour_Scheduling` (which tour, which guide, on which date, with how many participants) needed all three identifying columns in its primary key, since the same guide could run the same tour on different dates.
 - Deriving final relational schemas for all 21 tables directly from the conceptual model, keeping attribute names, types, and nullability consistent with the ER-level specification.
 
 ### Implementation in Oracle Database XE
@@ -133,7 +133,7 @@ This phase is fully documented in the [Application Layer Documentation](./Templa
 
 ## Tech Stack
 
-- **Oracle Database Express Edition (XE)** — relational database engine, table design, constraints, and views.
-- **Oracle SQL Developer** — schema development, querying, and ER/conceptual diagram generation.
-- **C# / .NET Framework (Windows Forms)** — desktop application for end-user interaction.
-- **Oracle.ManagedDataAccess (ODP.NET)** — database connectivity layer between the C# application and Oracle, including `OracleDataAdapter` and `OracleCommandBuilder` for generic, metadata-driven CRUD operations.
+- **Oracle Database Express Edition (XE)**: relational database engine, table design, constraints, and views.
+- **Oracle SQL Developer**: schema development, querying, and ER/conceptual diagram generation.
+- **C# / .NET Framework (Windows Forms)**: desktop application for end-user interaction.
+- **Oracle.ManagedDataAccess (ODP.NET)**: database connectivity layer between the C# application and Oracle, including `OracleDataAdapter` and `OracleCommandBuilder` for generic, metadata-driven CRUD operations.
